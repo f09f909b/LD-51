@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sfx/GateOpen16.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Sfx/Win16.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Sfx/Boost16.wav" type="AudioStream" id=3]
+
+[node name="SfxManager" type="Node2D"]
+pause_mode = 2
+
+[node name="Boost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="GateOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

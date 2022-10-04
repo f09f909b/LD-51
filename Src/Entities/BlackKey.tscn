@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/black_key.png" type="Texture" id=1]
+[ext_resource path="res://Src/Entities/Key.cs" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 5.5 )
+
+[node name="BlackKey" type="Area2D" groups=["BlackKey", "Key"]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1.5 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="OnEnterArea2D"]

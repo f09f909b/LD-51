@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Sprites/player-demo.png" type="Texture" id=1]
+[ext_resource path="res://Src/Player/Player.cs" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/blue_key.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/yellow_key.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/black_key.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Player" type="Area2D" groups=["Player"]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="KeyPickUp" type="Node2D" parent="."]
+
+[node name="YellowKey" type="Sprite" parent="KeyPickUp"]
+visible = false
+position = Vector2( 1.90735e-06, -16 )
+rotation = 3.1403
+texture = ExtResource( 4 )
+
+[node name="BlueKey" type="Sprite" parent="KeyPickUp"]
+visible = false
+position = Vector2( -17, -6 )
+rotation = 3.1403
+texture = ExtResource( 3 )
+
+[node name="BlackKey" type="Sprite" parent="KeyPickUp"]
+visible = false
+position = Vector2( 16, -6 )
+rotation = 3.13185
+texture = ExtResource( 5 )
+
+[connection signal="area_entered" from="." to="." method="OnArea2DEnter"]
